@@ -12,10 +12,16 @@ RSpec.describe Deck do
   end
 
   describe '.shift' do
-    it 'takes 1 card from end' do
+    it ' by defaulttakes 1 card from end' do
       last_card = subject.cards.last
       expect(subject.shift).to be last_card
       expect(subject.size).to eq 51
+    end
+
+    it 'takes n card from end' do
+      last_cards = subject.cards[-2..-1].reverse
+      expect(subject.shift(2)).to eq(last_cards)
+      expect(subject.size).to eq 50
     end
   end
 end
