@@ -12,8 +12,8 @@ RSpec.describe Card do
     specify { is_expected.to be > Card.new(9, 'S') }
     specify { is_expected.to be < Card.new('J', 'S') }
 
-    specify { is_expected.to be > Card.new('T', 'D') }
-    specify { is_expected.to be < Card.new('T', 'H') }
+    specify { is_expected.to be == Card.new('T', 'D') }
+    specify { is_expected.to be == Card.new('T', 'H') }
   end
 
   describe 'to_s' do

@@ -13,7 +13,7 @@ class Card
     end
   end
 
-  attr_reader :face_order, :suit_order
+  attr_reader :face_order, :suit
   def initialize(face, suit)
     @face = face
     @suit = suit
@@ -25,7 +25,6 @@ class Card
   end
 
   def <=>(a)
-    return self.suit_order <=> a.suit_order if self.face_order == a.face_order
     self.face_order <=> a.face_order
   end
 
