@@ -5,6 +5,14 @@ class Card
   FACES = ('2'..'9').to_a + %w(T J K Q A)
   SUITS = %w(C D S H)
 
+  def self.array_from_string(string, separator = ' ')
+    parts = string.split(separator)
+    parts.map do |part|
+      raise ArgumentError('Should be a string like "2C TH QS"') if part.size !=2
+      Card.new(part[0], part[1])
+    end
+  end
+
   attr_reader :face_order, :suit_order
   def initialize(face, suit)
     @face = face
