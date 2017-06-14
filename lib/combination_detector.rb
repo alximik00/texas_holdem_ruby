@@ -14,7 +14,7 @@ class CombinationDetector
     RANKS.each do |key|
       cards = self.send(key)
 
-      return {key: key, cards: cards} if cards
+      return {key: key, cards: cards.sort_by{|c| -c.face_order} } if cards
     end
   end
 

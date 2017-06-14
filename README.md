@@ -1,4 +1,6 @@
 # Hold’em Poker Simulator
+##### (job appliance test task)
+ 
  
 ### Task:
 * write classes and methods without code (design the code)
@@ -27,7 +29,7 @@ Card suits: `H S C D`
 
 Cards:	
 * 2H - two of hearts  
-* KD - jack of diamonds  
+* KD - king of diamonds  
 * QC - queen of clubs  
 	
 #### Hand types
@@ -36,11 +38,11 @@ From lowest to highest:
 * One pair	`2H 3C 6D JD JS`
 * Two pair	`2H 3C 3D JD JS`
 * Three of a kind	`2H 7D JC JD JS`
-* Straight	2H 3D 4C 5S 6D
-* Flush	2H 5H 9H JH AH
-* Full house	7H 7D JC JD JS
-* Four of a kind	7H JH JC JD JS
-* Straight flush	9H TH JH QH KH
+* Straight	`2H 3D 4C 5S 6D`
+* Flush	`2H 5H 9H JH AH`
+* Full house	`7H 7D JC JD JS`
+* Four of a kind	`7H JH JC JD JS`
+* Straight flush	`9H TH JH QH KH`
 
 #### Additional comparisons
 * High	`2H 3C 6D 9S JS	>	2H 3C 6D 7S JS`
@@ -78,3 +80,14 @@ Table on turn:	`2D 5C 7D QH`
 Table on river:	`2D 5C 7D QH 4D`   
  
 Player A win:	`2D 4D 7D KD AD (flush)`  
+
+
+
+
+# How to run the code
+Do `bundle install` before starting.
+
+`rspec` will run tests.
+
+`./main` will run the simulation.
+

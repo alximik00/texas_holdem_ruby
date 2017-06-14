@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require_relative 'lib/simulation'
 
-Simulation.run(3)
+Simulation.new(3).run

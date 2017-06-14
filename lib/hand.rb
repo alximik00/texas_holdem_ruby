@@ -27,25 +27,35 @@ class Hand
     compare_rank = (self_rank <=> other_rank)
     return compare_rank if compare_rank != 0
 
-    compare_highest_in_rank = self_comb[:cards][0] <=> ( other_comb[:cards][0] )
+    compare_highest_in_rank = self_comb[:cards].map(&:face_order) <=> ( other_comb[:cards].map(&:face_order) )
     return compare_highest_in_rank if compare_highest_in_rank != 0
 
-    @resulting = {cards: [highest_card], key: :highest}
-    highest_card <=> other.highest_card
+    @resulting = {cards: [first_non_equal_card(other)], key: :highest}
+    cmp_player_cards(other)
   end
 
   def print
     "#{@resulting[:cards].sort_by(&:face_order).map(&:to_s).join(' ')} (#{ @resulting[:key].to_s.gsub('_', ' ') })"
   end
 
+  def inspect
+    "<Hand #{combination.inspect}>"
+  end
   protected
+
+  def cmp_player_cards(other)
+    @player.cards.sort_by{|c| -c.face_order } <=> other.player.cards.sort_by{|c| -c.face_order }
+  end
+
+  def first_non_equal_card(other)
+    a = @player.cards.sort_by{|c| -c.face_order }
+    b = other.player.cards.sort_by{|c| -c.face_order }
+    a.zip(b).detect{|i,j| i.face_order != j.face_order}[0]
+  end
+
   # Returns combination name and it's cards
   def combination
     @combination ||= CombinationDetector.new(@cards).combination
-  end
-
-  def highest_card
-    @player.cards.sort_by(&:face_order).last
   end
 
 end

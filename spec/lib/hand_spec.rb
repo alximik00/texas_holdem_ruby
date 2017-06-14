@@ -52,13 +52,27 @@ RSpec.describe Hand do
     specify{
       player_a = hand('5H 7D 6H 6S KS 7C 4C')
       player_b = hand('JH AC 6H 6S KS 7C 4C')
+      #2 pairs wins 1 pair
+      expect( player_a ).to be > player_b
+    }
+
+    specify{
+      player_a = hand('5H 8H TH 2D JH TD 5D')
+      player_b = hand('6S 9H TH 2D JH TD 5D')
+      expect( player_a ).to be > player_b
+    }
+
+    specify  {
+      player_a = hand('5H 8H TH 2D JH TD 5D') #2 pairs TD TH 5D 5H
+      player_b = hand('2S AS TH 2D JH TD 5D') #2 pairs TD TH 2D 2S
       expect( player_a ).to be > player_b
     }
 
     specify {
       player_a = hand('7S KH')
       player_b = hand('2D KS')
-      expect( player_a ).to be == player_b
+      expect( player_a ).to be > player_b
     }
+
   end
 end
