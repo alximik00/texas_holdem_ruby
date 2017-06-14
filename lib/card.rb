@@ -13,8 +13,14 @@ class Card
     end
   end
 
-  attr_reader :face_order, :suit
-  def initialize(face, suit)
+  attr_reader :face_order, :suit_order, :suit
+  def initialize(face_or_s, suit=nil)
+    if suit.nil?
+      face,suit = face_or_s.split('')
+    else
+      face = face_or_s
+    end
+
     @face = face
     @suit = suit
     @face_order = FACES.index(face.to_s.upcase)
@@ -25,10 +31,14 @@ class Card
   end
 
   def <=>(a)
-    self.face_order <=> a.face_order
+    @face_order <=> a.face_order
   end
 
   def to_s
     "#{@face}#{@suit}"
+  end
+
+  def inspect
+    "<Card #{@face}#{@suit}>"
   end
 end

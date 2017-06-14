@@ -1,3 +1,3 @@
 require_relative 'lib/simulation'
 
-Simulation.run
+Simulation.run(3)

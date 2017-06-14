@@ -1,6 +1,6 @@
-# Hold’em Poker 
+# Hold’em Poker Simulator
  
-### Task(complexity grows from min to max through the list):
+### Task:
 * write classes and methods without code (design the code)
 * write program in ruby
 * write tests (TDD) *(actually TDD supposed to have test **before** code, of which I'm not a fan)*
@@ -8,12 +8,12 @@
 ### Flow
 It’s necessary to implement Hold‘em poker simulator. 
 One game round consists of following steps:
-1. initialize deck
-1. deal 2 cards to each player (pre-flop)
-1. put 3 cards on the table (flop)
-1. put 1 more card on the table (turn)
-1. put 1 more card on the table (river)
-1. determine winner
+1. Initialize deck
+1. Deal 2 cards to each player (pre-flop)
+1. Put 3 cards on the table (flop)
+1. Put 1 more card on the table (turn)
+1. Put 1 more card on the table (river)
+1. Determine winner
 
 Each player constructs 5-card combination (hand) using 2 cards in his (her) hand and 5 cards on the table. 
 Player who has best 5-card combination wins.
